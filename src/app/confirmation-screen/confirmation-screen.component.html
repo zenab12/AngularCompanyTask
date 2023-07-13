@@ -1,0 +1,151 @@
+<div class="!mt-10">
+  <h1
+    class="text-2xl font-semibold tracking-wider text-gray-800 capitalize dark:text-white"
+  >
+    Great!
+    <span class="text-[#ffc100] font-bold">{{ registeration?.username }}</span
+    >,
+
+    <br />
+    everyThing is ready
+  </h1>
+
+  <p class="mt-4 text-gray-500 dark:text-gray-400">
+    you will recieve a confirmation email soon with your profile details
+  </p>
+
+  <div class="grid grid-cols-1 gap-4">
+    <div class="flex gap-4">
+      <div
+        class="bg-[#ffc100] rounded-full flex w-10 h-10 justify-center items-center"
+      >
+        <mat-icon class="text-[#ffecb3]">account_circle</mat-icon>
+      </div>
+      <div class="grid grid-cols-1">
+        <p class="m-0 text-gray-500 dark:text-gray-400">Your full Name</p>
+        <h3 class="!mt-[-10px] dark:text-white">
+          {{ profileForm?.firstName }} {{ profileForm?.lastName }}
+        </h3>
+      </div>
+    </div>
+
+    <div class="flex gap-4">
+      <div
+        class="bg-[#ffc100] rounded-full flex w-10 h-10 justify-center items-center"
+      >
+        <mat-icon class="text-[#ffecb3]">calendar_month</mat-icon>
+      </div>
+      <div class="grid grid-cols-1">
+        <p class="m-0 text-gray-500 dark:text-gray-400">Your Age</p>
+        <h3 class="!mt-[-10px] dark:text-white">{{ profileForm?.age }}</h3>
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <div
+        class="bg-[#ffc100] rounded-full flex w-10 h-10 justify-center items-center"
+      >
+        <mat-icon class="text-[#ffecb3]">location_on</mat-icon>
+      </div>
+      <div class="grid grid-cols-1">
+        <p class="m-0 text-gray-500 dark:text-gray-400">Your Location</p>
+        <h3 class="!mt-[-10px] dark:text-white">
+          {{ profileForm?.cob }}, {{ profileForm?.address }}
+        </h3>
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <div
+        class="bg-[#ffc100] rounded-full flex w-10 h-10 justify-center items-center"
+      >
+        <mat-icon class="text-[#ffecb3]">password</mat-icon>
+      </div>
+      <div class="grid grid-cols-1">
+        <div class="flex gap-4">
+          <p class="m-0 text-gray-500 dark:text-gray-400">Your Password</p>
+          <div class="flex self-center">
+            <p
+              (click)="togglePassword()"
+              class="cursor-pointer"
+              *ngIf="!isShow"
+            >
+              <mat-icon class="text-[#ffc100]">visibility_on</mat-icon>
+            </p>
+            <p (click)="togglePassword()" class="cursor-pointer" *ngIf="isShow">
+              <mat-icon class="text-[#ffc100]">visibility_off</mat-icon>
+            </p>
+          </div>
+        </div>
+
+        <h3
+          class="!mt-[-10px] dark:text-white"
+          [ngClass]="{ flex: isShow, hidden: isShow == false }"
+        >
+          {{ registeration?.password }}
+        </h3>
+        <h3
+          class="!mt-[-10px] dark:text-white"
+          [ngClass]="{ flex: isShow == false, hidden: isShow }"
+        >
+          {{ hashedPass }}
+        </h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+    <button
+      (click)="back()"
+      class="flex items-center justify-between px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#ffc100] rounded-md hover:bg-[#ffb100] focus:outline-none focus:ring focus:ring-[#ffb100] focus:ring-opacity-50"
+    >
+      back
+      <svg
+        class="w-4 h-4 icon"
+        viewBox="0 0 1024 1024"
+        fill="currentColor"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="30"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+          <path
+            d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z"
+            fill="currentColor"
+          ></path>
+        </g>
+      </svg>
+    </button>
+
+    <button
+      (click)="confirmation()"
+      class="flex items-center justify-between px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#ffc100] rounded-md hover:bg-[#ffb100] focus:outline-none focus:ring focus:ring-[#ffb100] focus:ring-opacity-50"
+    >
+      Confirm
+
+      <svg
+        viewBox="0 0 1024 1024"
+        class="w-4 h-4 icon"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+          <path
+            d="M256 120.768L306.432 64 768 512l-461.568 448L256 903.232 659.072 512z"
+            fill="currentColor"
+          ></path>
+        </g>
+      </svg>
+    </button>
+  </div>
+</div>
