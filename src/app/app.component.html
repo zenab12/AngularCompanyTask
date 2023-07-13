@@ -1,0 +1,84 @@
+<router-outlet></router-outlet>
+<ng-container
+  *ngIf="
+    currentRoute == '/signup' ||
+    currentRoute == '/userProfile' ||
+    currentRoute == '/confirmation'
+  "
+>
+  <section
+    class="flex justify-center items-center w-full h-auto md:h-screen py-8 bg-white-500 dark:bg-[#111827] "
+  >
+    <div
+      class="dark:bg-gray-900 container mx-auto mx-auto py-6 md:py-2 h-fit min-h-[550px] max-h-fit w-[94%] md:w-[75%]  rounded-lg bg-white-500 shadow-lg shadow-currentColor dark:shadow-[12px 12px 24px #0e1421, -12px -12px 24px #141c2d]"
+    >
+      <div class="flex justify-center h-full">
+        <div
+          class="flex items-center w-full max-w-3xl p-8 mx-auto lg:px-12 lg:w-3/5"
+        >
+          <div class="w-full">
+            <div>
+              <app-stepper [url]="currentRoute"></app-stepper>
+            </div>
+
+            <div
+              class="transition-all duration-600"
+              [hidden]="
+                currentRoute == '/userProfile' ||
+                currentRoute == '/confirmation'
+              "
+            >
+              <app-sign-up-screen url="currentRoute"></app-sign-up-screen>
+            </div>
+
+            <div
+              class="transition-all duration-600"
+              [hidden]="
+                currentRoute == '/signup' || currentRoute == '/confirmation'
+              "
+            >
+              <app-user-profile-screen
+                url="currentRoute"
+              ></app-user-profile-screen>
+            </div>
+
+            <div
+              class="transition-all duration-600"
+              [hidden]="
+                currentRoute == '/userProfile' || currentRoute == '/signup'
+              "
+            >
+              <app-confirmation-screen
+                url="currentRoute"
+                [registeration]="signupForm!"
+                [profileForm]="profileForm!"
+              ></app-confirmation-screen>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="relative overflow-hidden hidden bg-cover lg:flex lg:w-3/5 xl:w-2/5 rounded-lg items-center justify-center px-8 after:content-[''] after:bg-[#ffc100] after:w-[80%] after:h-[70%] after:absolute after:z-10 after:top-[-15%] after:right-[-16%] after:rounded-[50%] after:rotate-[-45deg]"
+        >
+          <ng-container *ngIf="currentRoute == '/signup'">
+            <div class="w-[90%] mx-auto h-[100%] py-[16%]">
+              <signup-svg></signup-svg>
+            </div>
+          </ng-container>
+
+          <ng-container *ngIf="currentRoute == '/userProfile'">
+            <div class="w-[90%] mx-auto h-[100%] py-[16%]">
+              <profile-svg></profile-svg>
+            </div>
+          </ng-container>
+
+          <ng-container *ngIf="currentRoute == '/confirmation'">
+            <div class="w-[90%] mx-auto h-[100%] py-[16%]">
+              <confirmation-svg></confirmation-svg>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-container>
