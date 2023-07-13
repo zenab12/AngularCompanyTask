@@ -42,7 +42,7 @@ testem.log
 Thumbs.db
 
 # Firebase
-/.firebase
+# /.firebase
 .firebase/*
 .firebase
 *-debug.log
