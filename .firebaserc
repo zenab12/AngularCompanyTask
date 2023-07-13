@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "registeration-angular-d9d1c": {
+      "hosting": {
+        "Task": [
+          "registeration-angular-d9d1c"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "registeration-angular-d9d1c"
+  }
+}
