@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Asap:wght@300;500&family=Fjalla+One&display=swap");
+
+h1,h2,h3,h4,h5,h6,button {
+    font-family: "Fjalla One", sans-serif;
+}
+p {
+    font-family: "Asap", sans-serif;
+    font-weight: 300;
+}
+
+label ,input, select, option, textarea,input::placeholder,textarea::placeholder
+{
+
+    font-family: "Asap", sans-serif;
+    font-weight: 500;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
