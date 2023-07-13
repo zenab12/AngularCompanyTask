@@ -67,3 +67,8 @@ this is the last screen that shows all information from `Screen 1` and `Screen 2
 - Use `Tailwind` as your styling system.
 - Use `Reactive Forms` and `Form Builder` for all forms and input work.
 - Screens must be responsive and follows all considerations to work on any screen size
+## Solution Screen ✌️
+<img width="1110" alt="Screenshot 2023-07-03 173616" src="https://github.com/zenab12/AngularCompanyTask/assets/78083890/6d456f48-945c-4e53-9a52-da7f9b27b91b">
+<img width="1038" alt="Screenshot 2023-07-03 173951" src="https://github.com/zenab12/AngularCompanyTask/assets/78083890/7071b9f9-81af-497d-a05f-e520c605214e">
+<img width="1129" alt="Screenshot 2023-07-03 174104" src="https://github.com/zenab12/AngularCompanyTask/assets/78083890/ca5dfe02-fa1d-4e37-a640-553bca24e175">
+
