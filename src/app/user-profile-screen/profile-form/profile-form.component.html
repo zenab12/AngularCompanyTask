@@ -1,0 +1,193 @@
+<form
+  class="grid grid-cols-1 gap-4 mt-8 md:grid-cols-1"
+  [formGroup]="profileForm">
+<div class="grid grid-cols-1 gap-4 mt-8 md:grid-cols-2">
+<div>
+        <label
+        for="firstName"
+        class="block mb-2 text-gray-600 dark:text-gray-200 font-bold capitalize text-md"
+        >firstName:</label
+        >
+        <input
+        type="text"
+        id="firstName"
+        minlength="3"
+        formControlName="firstName"
+        placeholder="Zien"
+        class="form-control block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-[#ffc100] dark:focus:border-[#ffc100] focus:ring-[#ffc100] focus:outline-none focus:ring focus:ring-opacity-40"
+        />
+        
+        <ul *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)"
+        class="text-sm list-none text-red-400 list-inside">
+        
+        <li *ngIf="firstName?.errors?.['required']">
+            firstName is required.
+        </li>
+        <li *ngIf="firstName?.errors?.['minlength']">
+            firstName must be 3 chars at least.
+        </li>
+        <li *ngIf="firstName?.errors?.['maxlength']">
+            firstName must be less than 20 chars long.
+        </li>
+        <li *ngIf="firstName?.errors?.['pattern']">
+            firstName must be characters only.
+        </li>
+        
+    </ul>  
+</div>
+<div>
+    <label
+    for="lastName"
+    class="block mb-2 text-gray-600 dark:text-gray-200 font-bold capitalize text-md"
+    >lastName:</label
+    >
+    <input
+    type="text"
+    id="lastName"
+    formControlName="lastName"
+    placeholder="Muhammad"
+    class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-[#ffc100] dark:focus:border-[#ffc100] focus:ring-[#ffc100] focus:outline-none focus:ring focus:ring-opacity-40"
+    />
+    <ul *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)"
+    class="text-sm list-none text-red-400 list-inside">
+    
+    <li *ngIf="lastName?.errors?.['required']">
+        lastName is required.
+    </li>
+    <li *ngIf="lastName?.errors?.['minlength']">
+        lastName must be 3 chars at least.
+    </li>
+    <li *ngIf="lastName?.errors?.['maxlength']">
+        lastName must be less than 20 chars long.
+    </li>
+    <li *ngIf="lastName?.errors?.['pattern']">
+        lastName must be characters only.
+    </li>
+</ul>  
+</div>
+</div>
+  <div>
+    <label
+      for="age"
+      class="block mb-2 text-gray-600 dark:text-gray-200 font-bold capitalize text-md"
+      >age:</label
+    >
+    <input
+      type="text"
+      id="age"
+      min="8"
+      max="70"
+      formControlName="age"
+      placeholder="20"
+      class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-[#ffc100] dark:focus:border-[#ffc100] focus:ring-[#ffc100] focus:outline-none focus:ring focus:ring-opacity-40"
+    />
+    <ul *ngIf="age?.invalid && (age?.dirty || age?.touched)"
+    class="text-sm list-none text-red-400 list-inside">
+
+  <li *ngIf="age?.errors?.['required']">
+    age is required.
+  </li>
+  <li *ngIf="age?.errors?.['min']">
+    min age is 8 years .
+  </li>
+  <li *ngIf="age?.errors?.['max']">
+    max age is 70 years .
+  </li>
+  <li *ngIf="age?.errors?.['pattern']">
+    age must be digits only
+  </li>
+</ul>
+  </div>
+  <div>
+    <label
+    for="cob"
+    class="block mb-2 text-gray-600 dark:text-gray-200 font-bold capitalize text-md"
+    >country of birth:</label
+    >
+    <input
+    type="text"
+    id="cob"
+    formControlName="cob"
+    placeholder="Search for a country"
+    [matAutocomplete]="auto"
+    matInput
+    value="egy"
+    #in
+    (input)="getFiltered(in.value)"
+    class="form-control block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-[#ffc100] dark:focus:border-[#ffc100] focus:ring-[#ffc100] focus:outline-none focus:ring focus:ring-opacity-40"
+    >
+    <!-- 
+    <select>
+    <option value="" disabled selected>Select your country</option>
+    <option value="egypt">Egypt</option>
+    <option value="sudan">Sudan</option>
+    </select> -->
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let cob of filteredCountries " [value]="cob">
+        {{cob}}
+      </mat-option>
+    </mat-autocomplete>
+    
+    <ul *ngIf="cob?.invalid && (cob?.dirty || cob?.touched)"
+    class="text-sm list-none text-red-400 list-inside">
+    
+    <li *ngIf="cob?.errors?.['required']">
+        country of birth is required.
+    </li>
+    
+</ul>  
+</div>
+  <div>
+    <label
+    for="address"
+    class="block mb-2 text-gray-600 dark:text-gray-200 font-bold capitalize text-md"
+    >address:</label
+    >
+    <textarea
+    id="address"
+    formControlName="address"
+    placeholder="Mansoura - Egypt"
+    class="form-control block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-[#ffc100] dark:focus:border-[#ffc100] focus:ring-[#ffc100] focus:outline-none focus:ring focus:ring-opacity-40"
+    >
+    </textarea>
+    
+    <ul *ngIf="address?.invalid && (address?.dirty || address?.touched)"
+    class="text-sm list-none text-red-400 list-inside">
+    
+    <li *ngIf="firstName?.errors?.['required']">
+        address is required.
+    </li>
+    
+</ul>  
+</div>
+
+<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <button
+    (click)="back()"
+    class="flex items-center justify-between px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#ffc100] rounded-md hover:bg-[#ffb100] focus:outline-none focus:ring focus:ring-[#ffb100] focus:ring-opacity-50"
+    >
+     back
+     <svg    class="w-4 h-4 icon"
+     viewBox="0 0 1024 1024"
+     fill="currentColor"  version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="30"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z" fill="currentColor"></path></g></svg>
+    </button>
+    
+      <button
+      *ngIf="profileForm.valid"
+        type="submit"
+    (click)="onSubmit($event)"
+    
+        class="flex items-center justify-between px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#ffc100] rounded-md hover:bg-[#ffb100] focus:outline-none focus:ring focus:ring-[#ffb100] focus:ring-opacity-50"
+      >
+        
+        <a routerLink="/confirmation">
+          Next
+        </a>
+        <svg viewBox="0 0 1024 1024"   class="w-4 h-4 icon"
+         version="1.1" xmlns="http://www.w3.org/2000/svg"   fill="currentColor"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M256 120.768L306.432 64 768 512l-461.568 448L256 903.232 659.072 512z"  fill="currentColor"></path></g></svg>
+      </button>
+     
+</div>
+
+
+</form>
