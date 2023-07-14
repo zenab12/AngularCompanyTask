@@ -17,7 +17,7 @@ export class ProfileFormComponent implements OnInit {
   countries: any[] = [];
   filteredCountries:any ;
   
-  ngOnInit(): void {
+  public async ngOnInit(): Promise<void> {
     this.profileForm = this.fb.group({
       firstName: [
         '',
@@ -51,15 +51,13 @@ export class ProfileFormComponent implements OnInit {
     });
     
     
-   //get all countries from service
     this.countries = this.profileService.getAll();
-    this.filteredCountries = this.profileForm.get('address')?.valueChanges.pipe(
+    this.filteredCountries = this.profileForm.get('cob')?.valueChanges.pipe(
       startWith(''),
       map(value => this.getFiltered(value || '')),
     );
     this.filteredCountries.subscribe((data:any)=>{
-      // console.log(data);
-    });
+});
         
     
   }
@@ -85,11 +83,21 @@ export class ProfileFormComponent implements OnInit {
   get cob() {
     return this.profileForm.get('cob');
   }
-  getFiltered(value:any){
-  this.filteredCountries = this.profileService.getFiltered(value); 
-    return this.filteredCountries;
-    }
- 
+  
+  res:any;
+   getFiltered(value:any): Promise<any>{
+   if(value.length > 2)
+   {
+    this.filteredCountries =  this.profileService.getFiltered(value); 
+   }else if (value.length>0 && value.length<3)
+   {
+    this.filteredCountries = this.countries.filter(v=>v.toLowerCase().includes(value.toLowerCase()));
+   }else  {
+    this.filteredCountries = this.profileService.getAll();}
+  return this.filteredCountries;
+
+}
+
   back() {
     window.history.back();
   }

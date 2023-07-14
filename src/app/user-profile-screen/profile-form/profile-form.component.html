@@ -117,7 +117,7 @@
     class="form-control block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-[#ffc100] dark:focus:border-[#ffc100] focus:ring-[#ffc100] focus:outline-none focus:ring focus:ring-opacity-40"
     >
     <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let cob of filteredCountries " [value]="cob">
+      <mat-option *ngFor="let cob of filteredCountries" [value]="cob">
         {{cob}}
       </mat-option>
     </mat-autocomplete>
@@ -148,7 +148,7 @@
     <ul *ngIf="address?.invalid && (address?.dirty || address?.touched)"
     class="text-sm list-none text-red-400 list-inside">
     
-    <li *ngIf="firstName?.errors?.['required']">
+    <li *ngIf="address?.errors?.['required']">
         address is required.
     </li>
     
