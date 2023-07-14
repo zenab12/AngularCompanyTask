@@ -13,3 +13,4 @@ constructor(){}
 ngOnInit(): any {
 // console.log(this.url)
 }
+}
