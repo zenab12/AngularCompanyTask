@@ -55,7 +55,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.currentRoute = event.url;
-        console.log(this.currentRoute); //routename
+        // console.log(this.currentRoute); //routename
       }
     });
   }

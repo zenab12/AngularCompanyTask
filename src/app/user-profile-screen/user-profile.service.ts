@@ -26,7 +26,6 @@ export class UserProfileService {
     });
      
   },(err:any)=>{
-    console.log(err.message)
     return false;
   });
   

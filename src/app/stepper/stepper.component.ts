@@ -11,7 +11,7 @@ export class StepperComponent implements OnInit {
 constructor(){}
 
 ngOnInit(): any {
-console.log(this.url)
+// console.log(this.url)
 }
 
 }

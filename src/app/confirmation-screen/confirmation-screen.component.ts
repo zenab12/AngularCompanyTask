@@ -13,10 +13,10 @@ constructor(private router: Router){}
 hashedPass:any;
 ngOnChanges(): void {
 setTimeout(()=>{
-    console.log(this.registeration);
-    console.log(this.profileForm);
+    // console.log(this.registeration);
+    // console.log(this.profileForm);
 },0)
-  this.hashedPass = ('*').repeat(this?.registeration?.password.length)
+  this.hashedPass = ('*').repeat(this?.registeration?.password?.length)
 
 }
 back()

@@ -58,7 +58,7 @@ export class ProfileFormComponent implements OnInit {
       map(value => this.getFiltered(value || '')),
     );
     this.filteredCountries.subscribe((data:any)=>{
-      console.log(data);
+      // console.log(data);
     });
         
     
@@ -103,7 +103,7 @@ export class ProfileFormComponent implements OnInit {
     } else {
       this.profileForm.markAllAsTouched();
       for (const key of Object.keys(this.profileForm.controls)) {
-        if (this.profileForm.controls[key].value.length === 0) {
+        if (this.profileForm.controls[key].value?.length === 0) {
           this.profileForm.controls[key].markAsDirty();
         }
       }
