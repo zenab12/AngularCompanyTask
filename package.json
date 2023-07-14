@@ -8,6 +8,7 @@
     "build:dev": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "minify:html": "html-minifier --input-dir src --output-dir dist --file-ext html --remove-comments --collapse-whitespace --minify-css true",
     "ktest": "karma start ./path_to_karma.conf.js",
     "serve:host": "ng serve --host www.zien.com --port=8000"
   },
