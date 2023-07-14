@@ -15,14 +15,14 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatStepperModule} from '@angular/material/stepper';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule ,HTTP_INTERCEPTORS} from '@angular/common/http';
 import { SvgComponent } from './svgComponents/signupSvg.component';
 import { ProfileSvgComponent } from './svgComponents/profileSvg.component';
 import { ConfirmationSvgComponent } from './svgComponents/confirmationSvg.component';
 import { ErrorHandlerService } from './Services/error-handler.service';
 import { InterceptorClassService } from './Services/interceptor-class.service';
-import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
+import { AsyncPipe } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +51,7 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
     MatButtonModule,
     MatIconModule,
     HttpClientModule,
+    AsyncPipe
   ],
   providers: [
     {

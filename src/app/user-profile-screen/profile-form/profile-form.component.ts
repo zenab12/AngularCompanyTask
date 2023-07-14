@@ -84,7 +84,6 @@ export class ProfileFormComponent implements OnInit {
     return this.profileForm.get('cob');
   }
   
-  res:any;
    getFiltered(value:any): Promise<any>{
    if(value.length > 2)
    {

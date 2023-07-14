@@ -1,5 +1,4 @@
-import { AfterViewChecked, Component, DoCheck, Input, OnChanges } from '@angular/core';
-import { OnInit } from '@angular/core';
+import { AfterViewChecked, Component, DoCheck, Input, OnChanges , OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({

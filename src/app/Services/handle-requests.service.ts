@@ -15,7 +15,7 @@ export class HandleRequestsService {
     }
  
  filterCountries(filter:string){
-  return this.http.get(`${this.url}/${filter}`).pipe(debounceTime(800));; 
+  return this.http.get(`${this.url}/${filter}`).pipe(debounceTime(800)); 
  }
  
  

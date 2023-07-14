@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class SignFormComponent implements OnInit {
   signupForm!: FormGroup;
 
-constructor( private fb:FormBuilder,private router: Router) { };
+constructor( private fb:FormBuilder,private router: Router) { }
 ngOnInit() {
 this.signupForm = this.fb.group({
   username: ['',Validators.compose([Validators.required,Validators.minLength(8),Validators.pattern('^[a-z0-9]+$'),Validators.maxLength(20)])],

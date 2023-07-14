@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 const routes: Routes = [
 {
 path:"",component:AppComponent
@@ -17,7 +18,7 @@ path:'confirmation',loadChildren:()=>import("./confirmation-screen/confirmation-
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [FormsModule , RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
